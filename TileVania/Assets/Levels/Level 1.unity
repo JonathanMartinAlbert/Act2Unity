@@ -15178,6 +15178,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8915849544540917278, guid: 768b6cceff466274ba7e66e2be1b8e79, type: 3}
   m_PrefabInstance: {fileID: 8967117428454076131}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1364267783
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1364267784}
+  m_Layer: 8
+  m_Name: ControladorPared
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1364267784
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364267783}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1352576546}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1454615534
 GameObject:
   m_ObjectHideFlags: 0
@@ -21899,6 +21930,10 @@ PrefabInstance:
       propertyPath: m_BoundingShape2D
       value: 
       objectReference: {fileID: 548139936}
+    - target: {fileID: 3188938734376690180, guid: 99832fdfb2c51614e96d52e20c9aa737, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -17.404457
+      objectReference: {fileID: 0}
     - target: {fileID: 3188938734550148667, guid: 99832fdfb2c51614e96d52e20c9aa737, type: 3}
       propertyPath: m_Name
       value: Cameras
@@ -22542,6 +22577,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1842839372415561038, guid: 768b6cceff466274ba7e66e2be1b8e79, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8730224417633312954, guid: 768b6cceff466274ba7e66e2be1b8e79, type: 3}
       propertyPath: m_Name
       value: Avril

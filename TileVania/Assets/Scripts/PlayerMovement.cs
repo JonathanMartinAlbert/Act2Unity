@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     float gravityScaleAtStart;
 
     bool isAlive = true;
-
+    bool canDoubleJump = true;
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
@@ -50,13 +50,21 @@ public class PlayerMovement : MonoBehaviour
 
     void OnJump(InputValue value)
     {
-        if (!isAlive){ return; };
-        if (!myFeetCollider.IsTouchingLayers(LayerMask.GetMask( "Ground"))){ return; }
-        if (value.isPressed)
+        if (!isAlive) { return; }
+
+        // Check if the player is on the ground or can double jump
+        if (myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground")) || canDoubleJump)
         {
-            myRigidbody.velocity += new Vector2(0f, jumpSpeed);
+            if (value.isPressed)
+            {
+                myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, jumpSpeed);
+
+                // Restablece el flag canDoubleJump al tocar el suelo
+                canDoubleJump = myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"));
+            }
         }
     }
+
 
     void Run()
     {
