@@ -10,6 +10,9 @@ public class GameSession : MonoBehaviour
     [SerializeField] TextMeshProUGUI livesText;
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] int score = 0;
+    //timer
+    public float timer = 0f;
+    [SerializeField] TextMeshProUGUI textoTimer;
 
     void Awake()
     {
@@ -26,8 +29,9 @@ public class GameSession : MonoBehaviour
 
     void Start()
     {
-        livesText.text = playerLives.ToString();
+        livesText.text = "Vidas: " + playerLives.ToString();
         scoreText.text = score.ToString();
+        textoTimer.text = timer.ToString();
     }
 
     public void ProcessPlayerDeath()
@@ -63,5 +67,11 @@ public class GameSession : MonoBehaviour
         FindObjectOfType<ScenePersist>().ResetScenePersist();
         SceneManager.LoadScene(0);
         Destroy(gameObject);
+    }
+
+    void Update()
+    {
+        timer += Time.deltaTime;
+        textoTimer.text = "Tiempo: " + timer.ToString("f0");
     }
 }
