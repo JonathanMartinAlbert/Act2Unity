@@ -23,6 +23,8 @@ public class PlayerMovement : MonoBehaviour
 
     bool isAlive = true;
 
+    private const string _JUMP_ID_SOUND = "Jump";
+
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
@@ -54,6 +56,7 @@ public class PlayerMovement : MonoBehaviour
         if (!myFeetCollider.IsTouchingLayers(LayerMask.GetMask( "Ground"))){ return; }
         if (value.isPressed)
         {
+            AudioSystem.Instance.PlayVfx(_JUMP_ID_SOUND);
             myRigidbody.velocity += new Vector2(0f, jumpSpeed);
         }
     }
