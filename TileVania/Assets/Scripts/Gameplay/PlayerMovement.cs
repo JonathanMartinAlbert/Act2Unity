@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     float gravityScaleAtStart;
 
     bool isAlive = true;
+    bool canDoubleJump = true;
 
     private const string _JUMP_ID_SOUND = "Jump";
 
@@ -53,11 +54,16 @@ public class PlayerMovement : MonoBehaviour
     void OnJump(InputValue value)
     {
         if (!isAlive){ return; };
-        if (!myFeetCollider.IsTouchingLayers(LayerMask.GetMask( "Ground"))){ return; }
-        if (value.isPressed)
+
+        if (myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground")) || canDoubleJump)//Si esta tocando el suelo o puede hacer doble salto
         {
-            AudioSystem.Instance.PlayVfx(_JUMP_ID_SOUND);
-            myRigidbody.velocity += new Vector2(0f, jumpSpeed);
+            if (value.isPressed)
+            {
+                myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, jumpSpeed);
+
+                // Restablece el flag canDoubleJump al tocar el suelo
+                canDoubleJump = myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"));
+            }
         }
     }
 

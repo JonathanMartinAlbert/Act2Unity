@@ -14,7 +14,7 @@ public class Bullet : MonoBehaviour
 
     void Start()
     {
-        AudioSystem.Instance.PlayVfx(_SHOT_VFX_ID);
+        AudioSystem.Instance?.PlayVfx(_SHOT_VFX_ID);
         myRigidbody = GetComponent<Rigidbody2D>();
         player = FindObjectOfType<PlayerMovement>();
         xSpeed = player.transform.localScale.x * bulletSpeed;

@@ -8,6 +8,6 @@ public class ChangeMusicByLevel : MonoBehaviour
     void Start()
     {
         string nameLevel = SceneManager.GetActiveScene().name;
-        AudioSystem.Instance.PlayMusic(nameLevel);
+        AudioSystem.Instance?.PlayMusic(nameLevel);
     }
 }
