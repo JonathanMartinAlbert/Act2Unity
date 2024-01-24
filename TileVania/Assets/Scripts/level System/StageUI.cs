@@ -15,7 +15,6 @@ public class StageUI : MonoBehaviour
 
     private const string _FIRST_LEVEL_ID = "Level0";
 
-
     private void OnEnable()
     {
         if (_levelId == _FIRST_LEVEL_ID)

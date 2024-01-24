@@ -10,8 +10,11 @@ public class Bullet : MonoBehaviour
     PlayerMovement player;
     float xSpeed;
 
+    private const string _SHOT_VFX_ID = "Shot";
+
     void Start()
     {
+        AudioSystem.Instance.PlayVfx(_SHOT_VFX_ID);
         myRigidbody = GetComponent<Rigidbody2D>();
         player = FindObjectOfType<PlayerMovement>();
         xSpeed = player.transform.localScale.x * bulletSpeed;
